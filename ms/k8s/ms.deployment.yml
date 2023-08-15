@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ms-api
+  template:
+    metadata:
+      labels:
+        app: ms-api
+    spec:
+      containers:
+      - name: ms-api
+        image: ms:0.0.6
+        imagePullPolicy: "IfNotPresent"
+        command: ['sh', '-c']
+        args: ['GRPC_VERBOSITY=DEBUG GRPC_TRACE=all  node dist/main.js']
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
+          name: http
+        - containerPort: 5000
+          name: grpc

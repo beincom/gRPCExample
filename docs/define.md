@@ -1,0 +1,1 @@
+gRPC is a high-performance, open-source framework for building remote procedure call (RPC) APIs. It uses the Protocol Buffers data format for communication between client and server and supports a wide range of programming languages. gRPC allows for efficient and fast communication between microservices, enabling them to work together to form a larger, more complex application.

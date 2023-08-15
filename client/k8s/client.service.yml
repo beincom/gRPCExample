@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-api
+  namespace: default
+  labels:
+    app: client-api
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 3001
+      targetPort: http
+      name: http
+  selector:
+    app: client-api
